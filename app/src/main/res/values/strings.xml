@@ -6,4 +6,17 @@
     <string name="label_check_update">Check Update</string>
     <string name="label_login">Login</string>
     <string name="label_app_version_value">App Ver %s</string>
+    <string name="label_main_menu">Main Menu</string>
+    <string name="label_role_value">Role: %s</string>
+    <string name="label_nik_value">NIK: %s</string>
+    <string name="label_visit_in_value">Kunjungan pada bulan %s</string>
+    <string name="label_total_store">Total\nStore</string>
+    <string name="label_actual_store">Actual\nStore</string>
+    <string name="label_percentage">Percentage</string>
+    <string name="label_menu">Menu</string>
+    <string name="label_visit">Kunjungan</string>
+    <string name="label_target_install_cdfdpc">Target Install\nCDFDPC</string>
+    <string name="label_dashboard">Dashboard</string>
+    <string name="label_transmission_history">Transmission\nHistory</string>
+    <string name="label_logout">Logout</string>
 </resources>

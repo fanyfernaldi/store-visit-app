@@ -28,14 +28,14 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        localDb = LocalDatabase.getDatabase(this)
         sharedPref = PreferenceHelper(this)
         val isLoggedIn = sharedPref.getBoolean(DataConstants.IS_LOGGED_IN)
         if (isLoggedIn) {
             navigateToProfile()
             return
         }
+        setContentView(binding.root)
+        localDb = LocalDatabase.getDatabase(this)
 
         binding.apply {
             bindData()
@@ -141,6 +141,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateToProfile() {
         val intent = Intent(this, ProfileActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
     }
 }
