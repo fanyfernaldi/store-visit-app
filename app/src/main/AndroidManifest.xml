@@ -20,7 +20,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".presentation.store.detail.StoreDetailActivity"
+            android:name=".presentation.store.verification.StoreVerificationlActivity"
             android:exported="false" />
 
         <meta-data

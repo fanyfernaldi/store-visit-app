@@ -21,7 +21,7 @@ import com.fanyfernaldi.pitjarustest.domain.Store
 import com.fanyfernaldi.pitjarustest.misc.AppUtils
 import com.fanyfernaldi.pitjarustest.misc.DataConstants
 import com.fanyfernaldi.pitjarustest.misc.toFormattedDate
-import com.fanyfernaldi.pitjarustest.presentation.store.detail.StoreDetailActivity
+import com.fanyfernaldi.pitjarustest.presentation.store.verification.StoreVerificationlActivity
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import kotlinx.coroutines.Dispatchers
@@ -249,7 +249,7 @@ class StoreListActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun navigateToDetail(store: Store) {
         isNavigateToDetail = true
-        val intent = Intent(this, StoreDetailActivity::class.java)
+        val intent = Intent(this, StoreVerificationlActivity::class.java)
         intent.putExtra(DataConstants.STORE, store)
         startActivity(intent)
     }

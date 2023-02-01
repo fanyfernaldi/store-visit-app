@@ -1,4 +1,4 @@
-package com.fanyfernaldi.pitjarustest.presentation.store.detail
+package com.fanyfernaldi.pitjarustest.presentation.store.verification
 
 import android.Manifest
 import android.content.Intent
@@ -10,20 +10,20 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.fanyfernaldi.pitjarustest.R
-import com.fanyfernaldi.pitjarustest.databinding.ActivityStoreDetailBinding
+import com.fanyfernaldi.pitjarustest.databinding.ActivityStoreVerificationBinding
 import com.fanyfernaldi.pitjarustest.domain.Store
 import com.fanyfernaldi.pitjarustest.misc.DataConstants
 
-class StoreDetailActivity : AppCompatActivity() {
+class StoreVerificationlActivity : AppCompatActivity() {
 
     private var store: Store? = null
     private var picture: Bitmap? = null
     private var isLocationSuitable = false
-    private lateinit var binding: ActivityStoreDetailBinding
+    private lateinit var binding: ActivityStoreVerificationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityStoreDetailBinding.inflate(layoutInflater)
+        binding = ActivityStoreVerificationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         store = intent.getParcelableExtra(DataConstants.STORE)
@@ -38,7 +38,7 @@ class StoreDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun ActivityStoreDetailBinding.bindData() {
+    private fun ActivityStoreVerificationBinding.bindData() {
         ivBack.setColorFilter(getColor(R.color.white))
         ivLocation.setColorFilter(getColor(R.color.orange_FF9104))
         ivStore.setColorFilter(getColor(R.color.orange_FF9104))
@@ -61,15 +61,15 @@ class StoreDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun ActivityStoreDetailBinding.initListeners() {
-        ivBack.setOnClickListener { this@StoreDetailActivity.onBackPressed() }
+    private fun ActivityStoreVerificationBinding.initListeners() {
+        ivBack.setOnClickListener { this@StoreVerificationlActivity.onBackPressed() }
         btnNavigation.setOnClickListener { toastButtonClicked() }
         btnGpsFixed.setOnClickListener { toastButtonClicked() }
         btnReset.setOnClickListener { toastButtonClicked() }
         btnPhoto.setOnClickListener {
             openCamera()
         }
-        btnNoVisit.setOnClickListener { this@StoreDetailActivity.onBackPressed() }
+        btnNoVisit.setOnClickListener { this@StoreVerificationlActivity.onBackPressed() }
         btnVisit.setOnClickListener {
             if (!isLocationSuitable) {
                 toastButtonClicked("Jarak terlalu jauh!")
