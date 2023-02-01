@@ -1,4 +1,4 @@
-package com.fanyfernaldi.pitjarustest.presentation.store
+package com.fanyfernaldi.pitjarustest.presentation.store.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

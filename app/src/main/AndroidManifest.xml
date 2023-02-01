@@ -23,7 +23,7 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
-            android:name=".presentation.store.StoreListActivity"
+            android:name=".presentation.store.list.StoreListActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.profile.ProfileActivity"

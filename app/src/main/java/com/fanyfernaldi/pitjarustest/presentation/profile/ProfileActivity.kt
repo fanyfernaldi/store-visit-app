@@ -8,7 +8,7 @@ import com.fanyfernaldi.pitjarustest.databinding.ActivityProfileBinding
 import com.fanyfernaldi.pitjarustest.misc.DataConstants
 import com.fanyfernaldi.pitjarustest.misc.PreferenceHelper
 import com.fanyfernaldi.pitjarustest.presentation.login.LoginActivity
-import com.fanyfernaldi.pitjarustest.presentation.store.StoreListActivity
+import com.fanyfernaldi.pitjarustest.presentation.store.list.StoreListActivity
 
 class ProfileActivity : AppCompatActivity() {
 

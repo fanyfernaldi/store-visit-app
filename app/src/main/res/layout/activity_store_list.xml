@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white_FBFBFB"
     android:orientation="vertical"
-    tools:context=".presentation.store.StoreListActivity">
+    tools:context=".presentation.store.list.StoreListActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clAppBar"
