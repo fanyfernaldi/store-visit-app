@@ -23,4 +23,6 @@ data class Store (
     val regionName: String = "",
     val latitude: String = "",
     val longitude: String = "",
+    val distance: String = "",
+    val isChecked: Boolean = false
 ) : Parcelable

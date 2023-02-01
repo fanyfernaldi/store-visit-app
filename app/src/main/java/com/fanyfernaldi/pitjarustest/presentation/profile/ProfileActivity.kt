@@ -8,6 +8,7 @@ import com.fanyfernaldi.pitjarustest.databinding.ActivityProfileBinding
 import com.fanyfernaldi.pitjarustest.misc.DataConstants
 import com.fanyfernaldi.pitjarustest.misc.PreferenceHelper
 import com.fanyfernaldi.pitjarustest.presentation.login.LoginActivity
+import com.fanyfernaldi.pitjarustest.presentation.store.StoreListActivity
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -81,10 +82,11 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun ActivityProfileBinding.initListeners() {
         tvMainMenu.setOnClickListener {
-            // TODO: Move to main menu activity
+            // TODO: Move to main menu
         }
         includeMenuVisit.root.setOnClickListener {
-            // TODO: Move to list store activity
+            val intent = Intent(this@ProfileActivity, StoreListActivity::class.java)
+            startActivity(intent)
         }
         includeMenuLogout.root.setOnClickListener {
             sharedPref.put(DataConstants.IS_LOGGED_IN, false)

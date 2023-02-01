@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_FBFBFB"
+    android:orientation="vertical"
+    tools:context=".presentation.store.StoreListActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_arrow_back"
+            map:layout_constraintBottom_toBottomOf="@id/tvUsername"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toTopOf="@id/tvListStore" />
+
+        <TextView
+            android:id="@+id/tvListStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/label_list_store"
+            android:textSize="18sp"
+            map:layout_constraintStart_toEndOf="@id/ivBack"
+            map:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_username"
+            map:layout_constraintStart_toStartOf="@id/tvListStore"
+            map:layout_constraintTop_toBottomOf="@id/tvListStore" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_article"
+            map:layout_constraintBottom_toBottomOf="@id/tvUsername"
+            map:layout_constraintEnd_toEndOf="parent"
+            map:layout_constraintTop_toTopOf="@id/tvListStore" />
+
+        <EditText
+            android:id="@+id/etSearchStore"
+            style="@style/FormField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="@string/label_search_store_or_distributor"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="8dp"
+            android:maxLines="1"
+            map:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="280dp" />
+
+    <TextView
+        android:id="@+id/tvListVisitDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/label_list_visit_date_value"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        tools:listitem="@layout/item_store"
+        tools:itemCount="4"
+        android:paddingHorizontal="8dp" />
+
+
+</LinearLayout>
+

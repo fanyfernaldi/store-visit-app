@@ -19,4 +19,11 @@
     <string name="label_dashboard">Dashboard</string>
     <string name="label_transmission_history">Transmission\nHistory</string>
     <string name="label_logout">Logout</string>
+    <string name="label_list_store">List Store</string>
+    <string name="label_list_visit_date_value">List kunjungan %s</string>
+    <string name="label_cluster_value">Cluster: %s</string>
+    <string name="label_meter_value">%s m</string>
+    <string name="label_kilo_meter_value">%s km</string>
+    <string name="label_search_store_or_distributor">Cari Toko/Distributor</string>
+    <string name="label_perfect_store">Perfect Store</string>
 </resources>

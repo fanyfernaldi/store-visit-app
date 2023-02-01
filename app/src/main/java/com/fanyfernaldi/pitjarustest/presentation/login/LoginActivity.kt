@@ -72,9 +72,6 @@ class LoginActivity : AppCompatActivity() {
             renderLoading(true)
             login()
         }
-        checkboxKeepUsername.setOnClickListener { isChecked ->
-            val test = isChecked
-        }
     }
 
     private fun ActivityLoginBinding.renderLoading(isLoading: Boolean = true) {
@@ -100,7 +97,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun ActivityLoginBinding.insertStoreData(stores: List<Store>) {
-        val storeCacheList = stores.map { store ->
+        var storeCacheList = stores.map { store ->
             StoreCache(
                 storeId = store.storeId.toInt(),
                 storeCode = store.storeCode,
@@ -121,7 +118,9 @@ class LoginActivity : AppCompatActivity() {
                 latitude = store.latitude,
                 longitude = store.longitude,
             )
-        }
+        }.toMutableList()
+        val isDummyDataCreated = sharedPref.getBoolean(DataConstants.IS_DUMMY_DATA_STORE_CREATED)
+        if (!isDummyDataCreated) storeCacheList.add(dummyDataStore())
         GlobalScope.launch {
             localDb.storeDao().insertAll(storeCacheList)
             setSharedPref()
@@ -143,5 +142,34 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, ProfileActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
+    }
+
+    /**
+     * I use dummy data because in the login response there are no store located close to me.
+     * You can change the latitude and longitude in this domain according to your location.
+     * With this dummy data I can test store distances that are more or less than 100m.
+     */
+    private fun dummyDataStore(): StoreCache {
+        sharedPref.put(DataConstants.IS_DUMMY_DATA_STORE_CREATED, true)
+        return StoreCache(
+            storeCode = "IDM00099",
+            storeName = "Dummy data for test",
+            address = "Jalan raya 99",
+            dcId = "99",
+            dcName = "dc 99",
+            accountId = "99",
+            accountName = "IDM DUMMY 99",
+            subChannelId = "99",
+            subChannelName = "sub 99",
+            channelId = "99",
+            channelName = "MT 99",
+            areaId = "99",
+            areaName = "area 99",
+            regionId = "99",
+            regionName = "region 99",
+            latitude = "-7.389552",
+            longitude = "109.055821",
+            isChecked = false
+        )
     }
 }

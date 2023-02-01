@@ -24,4 +24,5 @@ data class StoreCache(
     @ColumnInfo(name = "region_name") val regionName: String = "",
     @ColumnInfo(name = "latitude") val latitude: String = "",
     @ColumnInfo(name = "longitude") val longitude: String = "",
+    @ColumnInfo(name = "is_checked") val isChecked: Boolean = false,
 )

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.fanyfernaldi.pitjarustest">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,6 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PitjarusTest"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".presentation.store.StoreListActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.profile.ProfileActivity"
             android:exported="false" />

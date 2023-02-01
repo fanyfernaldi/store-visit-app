@@ -9,6 +9,7 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="white_F5F9FE">#F5F9FE</color>
+    <color name="white_FBFBFB">#FBFBFB</color>
 
     <color name="grey_E4E4E4">#E4E4E4</color>
     <color name="grey_9E9E9E">#9E9E9E</color>
@@ -19,4 +20,6 @@
     <color name="orange_FF9104">#FF9104</color>
 
     <color name="purple_E5ECFF">#E5ECFF</color>
+    
+    <color name="green_51CF66">#51CF66</color>
 </resources>
