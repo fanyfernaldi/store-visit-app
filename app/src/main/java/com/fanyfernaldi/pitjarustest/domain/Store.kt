@@ -24,5 +24,6 @@ data class Store (
     val latitude: String = "",
     val longitude: String = "",
     val distance: String = "",
-    val isChecked: Boolean = false
+    val isChecked: Boolean = false,
+    val lastVisitDate: String = ""
 ) : Parcelable

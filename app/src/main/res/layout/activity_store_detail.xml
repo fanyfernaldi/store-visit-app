@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        tools:context=".presentation.store.detail.StoreDetailActivity">
+
+        <ImageView
+            android:id="@+id/ivPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_default_profile_picture"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintBottom_toBottomOf="@id/tvUsername"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvStoreVerification" />
+
+        <TextView
+            android:id="@+id/tvStoreVerification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_store_verification"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/ivBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_username"
+            app:layout_constraintStart_toStartOf="@id/tvStoreVerification"
+            app:layout_constraintTop_toBottomOf="@id/tvStoreVerification" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="-24dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintTop_toBottomOf="@id/ivPhoto">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="40dp">
+
+                <ImageView
+                    android:id="@+id/ivLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location_on"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivLocation"
+                    app:layout_constraintStart_toEndOf="@id/ivLocation"
+                    app:layout_constraintTop_toTopOf="@id/ivLocation"
+                    tools:text="Lokasi Belum Sesuai" />
+
+                <Button
+                    android:id="@+id/btnReset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/bg_button"
+                    android:backgroundTint="@color/blue_005EEF"
+                    android:minHeight="32dp"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="0dp"
+                    android:text="@string/label_reset"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLocation"
+                    app:layout_constraintStart_toEndOf="@id/tvLocation"
+                    app:layout_constraintTop_toTopOf="@id/tvLocation" />
+
+                <ImageView
+                    android:id="@+id/ivStore"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_store"
+                    app:layout_constraintEnd_toEndOf="@id/ivLocation"
+                    app:layout_constraintStart_toStartOf="@id/ivLocation"
+                    app:layout_constraintTop_toBottomOf="@id/ivLocation" />
+
+                <TextView
+                    android:id="@+id/tvStoreName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivStore"
+                    app:layout_constraintStart_toStartOf="@id/tvLocation"
+                    app:layout_constraintTop_toTopOf="@id/ivStore"
+                    tools:text="Toko B" />
+
+                <TextView
+                    android:id="@+id/tvStoreAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@id/tvStoreName"
+                    app:layout_constraintTop_toBottomOf="@id/tvStoreName"
+                    tools:text="Jalan Pal Merah No 25 Jakarta Barat" />
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@id/tvStoreAddress"
+                    app:layout_constraintTop_toBottomOf="@id/tvStoreAddress">
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_outlet_type"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvOutletType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            tools:text="@string/label_colon_value" />
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_display_type"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDisplayType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            tools:text="@string/label_colon_value" />
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_display_sub_type"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDisplaySubType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            tools:text="@string/label_colon_value" />
+
+                    </TableRow>
+
+
+                    <TableRow android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_ertm"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvErtm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            tools:text="@string/label_colon_value" />
+
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_pareto"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPareto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            tools:text="@string/label_colon_value" />
+
+                    </TableRow>
+
+
+                    <TableRow android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_e_merchandising"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvEMerchandising"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            tools:text="@string/label_colon_value" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <ImageView
+                    android:id="@+id/ivLastVisit"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_article"
+                    app:layout_constraintEnd_toEndOf="@id/ivLocation"
+                    app:layout_constraintStart_toStartOf="@id/ivLocation"
+                    app:layout_constraintTop_toBottomOf="@id/tableLayout" />
+
+                <TextView
+                    android:id="@+id/tvLastVisit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_last_visit"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivLastVisit"
+                    app:layout_constraintStart_toStartOf="@id/tvLocation"
+                    app:layout_constraintTop_toTopOf="@id/ivLastVisit" />
+
+                <TextView
+                    android:id="@+id/tvLastVisitDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@id/tvLastVisit"
+                    app:layout_constraintTop_toBottomOf="@id/tvLastVisit"
+                    tools:text="05-09-2018" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/cvContent"
+            app:layout_constraintEnd_toEndOf="@id/cvContent"
+            app:layout_constraintTop_toTopOf="@id/cvContent">
+
+            <ImageView
+                android:id="@+id/btnNavigation"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_circle_gradient"
+                android:padding="12dp"
+                android:src="@drawable/ic_navigation" />
+
+            <ImageView
+                android:id="@+id/btnPhoto"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_circle_gradient"
+                android:padding="12dp"
+                android:src="@drawable/ic_photo_camera" />
+
+            <ImageView
+                android:id="@+id/btnGpsFixed"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_circle_gradient"
+                android:padding="12dp"
+                android:src="@drawable/ic_gps_fixed" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnNoVisit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_button"
+            android:backgroundTint="@color/red"
+            android:minHeight="32dp"
+            android:paddingVertical="16dp"
+            android:text="@string/label_no_visit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/btnVisit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvContent" />
+
+        <Button
+            android:id="@+id/btnVisit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_button"
+            android:backgroundTint="@color/blue_005EEF"
+            android:minHeight="32dp"
+            android:paddingVertical="16dp"
+            android:text="@string/label_visit_2"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnNoVisit"
+            app:layout_constraintTop_toBottomOf="@id/cvContent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

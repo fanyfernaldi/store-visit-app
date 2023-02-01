@@ -15,6 +15,8 @@
     <string name="label_percentage">Percentage</string>
     <string name="label_menu">Menu</string>
     <string name="label_visit">Kunjungan</string>
+    <string name="label_visit_2">Visit</string>
+    <string name="label_no_visit">No Visit</string>
     <string name="label_target_install_cdfdpc">Target Install\nCDFDPC</string>
     <string name="label_dashboard">Dashboard</string>
     <string name="label_transmission_history">Transmission\nHistory</string>
@@ -26,4 +28,17 @@
     <string name="label_kilo_meter_value">%s km</string>
     <string name="label_search_store_or_distributor">Cari Toko/Distributor</string>
     <string name="label_perfect_store">Perfect Store</string>
+    <string name="label_store_verification">Verifikasi Store</string>
+    <string name="label_reset">Reset</string>
+    <string name="label_outlet_type">Tipe Outlet</string>
+    <string name="label_display_type">Tipe Display</string>
+    <string name="label_display_sub_type">Sub Tipe Display</string>
+    <string name="label_ertm">ERTM</string>
+    <string name="label_pareto">Pareto</string>
+    <string name="label_e_merchandising">E-merchandising</string>
+    <string name="label_colon_value">: %s</string>
+    <string name="label_last_visit">Last Visit</string>
+    <string name="label_location_is_not_suitable">Lokasi belum sesuai</string>
+    <string name="label_location_is_suitable">Lokasi sudah sesuai</string>
+    <string name="label_yes">Ya</string>
 </resources>

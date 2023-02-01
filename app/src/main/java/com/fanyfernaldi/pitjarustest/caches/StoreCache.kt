@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "store_table")
 data class StoreCache(
-    @PrimaryKey(autoGenerate = true) val storeId: Int = 0 ,
+    @PrimaryKey(autoGenerate = true) val storeId: Int = 0,
     @ColumnInfo(name = "store_code") val storeCode: String = "",
     @ColumnInfo(name = "store_name") val storeName: String = "",
     @ColumnInfo(name = "address") val address: String = "",
@@ -25,4 +25,5 @@ data class StoreCache(
     @ColumnInfo(name = "latitude") val latitude: String = "",
     @ColumnInfo(name = "longitude") val longitude: String = "",
     @ColumnInfo(name = "is_checked") val isChecked: Boolean = false,
+    @ColumnInfo(name = "last_visit_date") val lastVisitDate: String = "",
 )

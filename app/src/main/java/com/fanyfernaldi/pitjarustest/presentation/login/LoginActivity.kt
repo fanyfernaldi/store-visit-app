@@ -169,7 +169,8 @@ class LoginActivity : AppCompatActivity() {
             regionName = "region 99",
             latitude = "-7.389552",
             longitude = "109.055821",
-            isChecked = false
+            isChecked = false,
+            lastVisitDate = ""
         )
     }
 }
