@@ -51,4 +51,6 @@
     <string name="label_sku_promo">SKU\nPromo</string>
     <string name="label_oos_summary">Ringkasan\nOOS</string>
     <string name="label_store_investment">Store\nInvestment</string>
+    <string name="label_percentage_value">%s</string>
+    <string name="label_settings">Pengturan</string>
 </resources>

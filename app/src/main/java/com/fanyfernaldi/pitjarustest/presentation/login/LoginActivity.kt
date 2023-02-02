@@ -44,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun ActivityLoginBinding.bindData() {
+        tvAppVersion.text = "1.0.0-20013FEA6BC820C"
         val savedUsername = sharedPref.getString(DataConstants.IDP_USERNAME)
         if (!savedUsername.isNullOrEmpty()) {
             etUsername.setText(savedUsername)

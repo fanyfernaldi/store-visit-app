@@ -22,7 +22,7 @@
             android:name=".presentation.store.detail.StoreDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.store.verification.StoreVerificationlActivity"
+            android:name=".presentation.store.verification.StoreVerificationActivity"
             android:exported="false" />
 
         <meta-data

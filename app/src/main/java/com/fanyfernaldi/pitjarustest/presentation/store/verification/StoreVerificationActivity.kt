@@ -17,7 +17,7 @@ import com.fanyfernaldi.pitjarustest.domain.Store
 import com.fanyfernaldi.pitjarustest.misc.KeyConstants
 import com.fanyfernaldi.pitjarustest.presentation.store.detail.StoreDetailActivity
 
-class StoreVerificationlActivity : AppCompatActivity() {
+class StoreVerificationActivity : AppCompatActivity() {
 
     private var store: Store? = null
     private var photoSelfie: Bitmap? = null
@@ -76,14 +76,14 @@ class StoreVerificationlActivity : AppCompatActivity() {
     }
 
     private fun ActivityStoreVerificationBinding.initListeners() {
-        ivBack.setOnClickListener { this@StoreVerificationlActivity.onBackPressed() }
-        btnNavigation.setOnClickListener { toastButtonClicked() }
-        btnGpsFixed.setOnClickListener { toastButtonClicked() }
-        btnReset.setOnClickListener { toastButtonClicked() }
+        ivBack.setOnClickListener { this@StoreVerificationActivity.onBackPressed() }
+        btnNavigation.setOnClickListener { toastButtonClicked("Button navigation clicked") }
+        btnGpsFixed.setOnClickListener { toastButtonClicked("Button GPS clicked") }
+        btnReset.setOnClickListener { toastButtonClicked("Button reset clicked") }
         btnPhoto.setOnClickListener {
             openCamera()
         }
-        btnNoVisit.setOnClickListener { this@StoreVerificationlActivity.onBackPressed() }
+        btnNoVisit.setOnClickListener { this@StoreVerificationActivity.onBackPressed() }
         btnVisit.setOnClickListener {
             if (!isLocationSuitable) {
                 toastButtonClicked("Jarak terlalu jauh!")

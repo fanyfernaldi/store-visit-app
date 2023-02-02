@@ -15,16 +15,16 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fanyfernaldi.pitjarustest.R
 import com.fanyfernaldi.pitjarustest.databases.LocalDatabase
 import com.fanyfernaldi.pitjarustest.databinding.ActivityStoreListBinding
 import com.fanyfernaldi.pitjarustest.domain.Store
 import com.fanyfernaldi.pitjarustest.misc.AppUtils
-import com.fanyfernaldi.pitjarustest.misc.DataConstants
 import com.fanyfernaldi.pitjarustest.misc.KeyConstants
 import com.fanyfernaldi.pitjarustest.misc.toFormattedDate
-import com.fanyfernaldi.pitjarustest.presentation.store.verification.StoreVerificationlActivity
+import com.fanyfernaldi.pitjarustest.presentation.store.verification.StoreVerificationActivity
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import kotlinx.coroutines.Dispatchers
@@ -68,6 +68,7 @@ class StoreListActivity : AppCompatActivity(), OnMapReadyCallback {
         localDb = LocalDatabase.getDatabase(this)
         binding.tvListVisitDate.text =
             getString(R.string.label_list_visit_date_value, Date().toFormattedDate("dd-MM-yyyy"))
+        binding.renderLoading(true)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -141,6 +142,7 @@ class StoreListActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
                     setAdapter(storeList)
                     if (isFirstLoad) {
+                        renderLoading(false)
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 17f))
                         isFirstLoad = false
                     }
@@ -263,9 +265,14 @@ class StoreListActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun navigateToDetail(store: Store) {
         isNavigateToDetail = true
-        val intent = Intent(this, StoreVerificationlActivity::class.java)
+        val intent = Intent(this, StoreVerificationActivity::class.java)
         intent.putExtra(KeyConstants.STORE, store)
         storeVerificationCallback.launch(intent)
+    }
+
+    private fun ActivityStoreListBinding.renderLoading(isLoading: Boolean = true) {
+        progressBarLoading.isVisible = isLoading
+        llContent.isVisible = !isLoading
     }
 
     companion object {

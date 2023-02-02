@@ -95,6 +95,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="56dp"
             android:indeterminate="true"
+            android:indeterminateTint="@color/blue_4C7AE7"
+            android:indeterminateTintMode="src_atop"
             android:visibility="gone" />
 
 
@@ -114,6 +116,7 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
+            android:id="@+id/tvAppVersion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
