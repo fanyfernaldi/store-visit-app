@@ -2,14 +2,12 @@
 
 before running this application, you must declare **MAPS_API_KEY** in the file **local.properties** first
 ```
-<meta-data
-    android:name="com.google.android.geo.API_KEY"
-    android:value="${MAPS_API_KEY}" />
+MAPS_API_KEY=your_maps_api_key
 ```
 ### Note
 The latitude and longitude provided in the login response were nowhere close to my location, so I added a dummy data with latitude and longitude around my location. You can replace the dummy data with the latitude and longitude at your location to make the testing process easier
 
-cara merubahnya ada di file **LoginActivity.kt**
+change latitude and longitude dummy data in LoginActivity.kt file **LoginActivity.kt**
 ```
 private fun dummyDataStore(): StoreCache {
         sharedPref.put(DataConstants.IS_DUMMY_DATA_STORE_CREATED, true)
