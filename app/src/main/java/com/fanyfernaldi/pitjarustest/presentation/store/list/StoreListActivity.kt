@@ -2,6 +2,7 @@ package com.fanyfernaldi.pitjarustest.presentation.store.list
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -9,6 +10,7 @@ import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,6 +22,7 @@ import com.fanyfernaldi.pitjarustest.databinding.ActivityStoreListBinding
 import com.fanyfernaldi.pitjarustest.domain.Store
 import com.fanyfernaldi.pitjarustest.misc.AppUtils
 import com.fanyfernaldi.pitjarustest.misc.DataConstants
+import com.fanyfernaldi.pitjarustest.misc.KeyConstants
 import com.fanyfernaldi.pitjarustest.misc.toFormattedDate
 import com.fanyfernaldi.pitjarustest.presentation.store.verification.StoreVerificationlActivity
 import com.google.android.gms.maps.*
@@ -42,6 +45,17 @@ class StoreListActivity : AppCompatActivity(), OnMapReadyCallback {
     private var myLatitude = 0.0
     private var myLongitude = 0.0
     private var storeListAdapter: StoreListAdapter = StoreListAdapter(storeList)
+
+    private val storeVerificationCallback = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+            val isUpdateStore = it.data?.getBooleanExtra(KeyConstants.IS_UPDATE_STORE, false)
+            if (isUpdateStore == true) {
+                binding.setRecyclerViewData()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -250,8 +264,8 @@ class StoreListActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun navigateToDetail(store: Store) {
         isNavigateToDetail = true
         val intent = Intent(this, StoreVerificationlActivity::class.java)
-        intent.putExtra(DataConstants.STORE, store)
-        startActivity(intent)
+        intent.putExtra(KeyConstants.STORE, store)
+        storeVerificationCallback.launch(intent)
     }
 
     companion object {

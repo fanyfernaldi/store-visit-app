@@ -41,4 +41,14 @@
     <string name="label_location_is_not_suitable">Lokasi belum sesuai</string>
     <string name="label_location_is_suitable">Lokasi sudah sesuai</string>
     <string name="label_yes">Ya</string>
+    <string name="label_marquee_repeat">Terima kasih untuk support yang luar biasa di masa-masa covid-19 seperti ini. semoga sehat selalu</string>
+    <string name="label_dashboard_store">Dashboard Store</string>
+    <string name="label_target">Target</string>
+    <string name="label_achievement">Pencapaian</string>
+    <string name="label_done">Selesai</string>
+    <string name="label_information">Information</string>
+    <string name="label_product_check">Product\nCheck</string>
+    <string name="label_sku_promo">SKU\nPromo</string>
+    <string name="label_oos_summary">Ringkasan\nOOS</string>
+    <string name="label_store_investment">Store\nInvestment</string>
 </resources>

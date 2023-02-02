@@ -6,11 +6,23 @@
     android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/ivChecked"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/bg_circle_stroke"
+        android:elevation="4dp"
+        android:layout_marginEnd="-8dp"
+        android:visibility="gone"
+        android:src="@drawable/ic_check"
+        app:layout_constraintEnd_toEndOf="@id/ivIcon"
+        app:layout_constraintTop_toTopOf="@id/ivIcon" />
+
+    <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:padding="12dp"
         android:background="@drawable/bg_circle"
+        android:padding="12dp"
         android:src="@drawable/ic_store"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,8 +32,8 @@
         android:id="@+id/tvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_marginTop="8dp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@id/ivIcon"
         app:layout_constraintStart_toStartOf="@id/ivIcon"
         app:layout_constraintTop_toBottomOf="@id/ivIcon"

@@ -20,4 +20,7 @@ interface StoreDao {
 
     @Query("DELETE FROM store_table")
     suspend fun deleteAll()
+
+    @Query("UPDATE store_table SET is_checked=:isChecked, last_visit_date=:lastVisitDate WHERE storeId LIKE :id")
+    suspend fun update(isChecked: Boolean, lastVisitDate: String, id: String)
 }

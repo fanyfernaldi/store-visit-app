@@ -1,32 +1,46 @@
 package com.fanyfernaldi.pitjarustest.presentation.store.verification
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.fanyfernaldi.pitjarustest.R
 import com.fanyfernaldi.pitjarustest.databinding.ActivityStoreVerificationBinding
 import com.fanyfernaldi.pitjarustest.domain.Store
-import com.fanyfernaldi.pitjarustest.misc.DataConstants
+import com.fanyfernaldi.pitjarustest.misc.KeyConstants
+import com.fanyfernaldi.pitjarustest.presentation.store.detail.StoreDetailActivity
 
 class StoreVerificationlActivity : AppCompatActivity() {
 
     private var store: Store? = null
-    private var picture: Bitmap? = null
+    private var photoSelfie: Bitmap? = null
     private var isLocationSuitable = false
     private lateinit var binding: ActivityStoreVerificationBinding
+
+    private val storeDetailCallback = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+            val isUpdateStore = it.data?.getBooleanExtra(KeyConstants.IS_UPDATE_STORE, false)
+            isUpdateStore?.let { value ->
+                navigateToPreviousActivityWithData(value)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStoreVerificationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        store = intent.getParcelableExtra(DataConstants.STORE)
+        store = intent.getParcelableExtra(KeyConstants.STORE)
         store?.let {
             isLocationSuitable = if (it.distance.isNotEmpty()) it.distance.toDouble().toInt() < 100
             else false
@@ -75,17 +89,41 @@ class StoreVerificationlActivity : AppCompatActivity() {
                 toastButtonClicked("Jarak terlalu jauh!")
                 return@setOnClickListener
             }
-            if (picture == null) {
+            if (photoSelfie == null) {
                 toastButtonClicked("Ambil foto terlebih dahulu!")
                 return@setOnClickListener
             }
-            // TODO: Navigate to main menu
+            navigateToStoreDetail()
         }
     }
 
+    private fun navigateToStoreDetail() {
+        val intent = Intent(this, StoreDetailActivity::class.java)
+        store?.let {
+            intent.putExtra(KeyConstants.STORE, it)
+        }
+        intent.putExtra(KeyConstants.PHOTO_SELFIE, photoSelfie)
+        storeDetailCallback.launch(intent)
+    }
+
+    private fun navigateToPreviousActivityWithData(isUpdateStore: Boolean = false) {
+        val resultIntent = Intent()
+        resultIntent.putExtra(KeyConstants.IS_UPDATE_STORE, isUpdateStore)
+        setResult(Activity.RESULT_OK, resultIntent)
+        finish()
+    }
+
     private fun openCamera() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_REQUEST_CODE)
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA),
+                CAMERA_REQUEST_CODE
+            )
         } else {
             val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(i, ACTION_IMAGE_CAPTURE_REQUEST_CODE)
@@ -95,8 +133,8 @@ class StoreVerificationlActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTION_IMAGE_CAPTURE_REQUEST_CODE && data != null) {
-            picture = data.getParcelableExtra("data")
-            binding.ivPhoto.setImageBitmap(picture)
+            photoSelfie = data.getParcelableExtra("data")
+            binding.ivPhoto.setImageBitmap(photoSelfie)
         }
     }
 
@@ -115,7 +153,6 @@ class StoreVerificationlActivity : AppCompatActivity() {
     private fun toastButtonClicked(message: String = "Button Clicked") {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
-
 
     companion object {
         const val CAMERA_REQUEST_CODE = 1002
