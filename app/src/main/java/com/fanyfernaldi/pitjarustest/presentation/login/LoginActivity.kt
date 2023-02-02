@@ -68,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun ActivityLoginBinding.initListeners() {
+        tvCheckUpdate.setOnClickListener { Toast.makeText(this@LoginActivity, "Check update clicked", Toast.LENGTH_LONG).show() }
         btnLogin.setOnClickListener {
             renderLoading(true)
             login()

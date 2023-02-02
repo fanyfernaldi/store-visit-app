@@ -49,6 +49,7 @@ class StoreListActivity : AppCompatActivity(), OnMapReadyCallback {
     private val storeVerificationCallback = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
+        isNavigateToDetail = false
         if (it.resultCode == Activity.RESULT_OK && it.data != null) {
             val isUpdateStore = it.data?.getBooleanExtra(KeyConstants.IS_UPDATE_STORE, false)
             if (isUpdateStore == true) {

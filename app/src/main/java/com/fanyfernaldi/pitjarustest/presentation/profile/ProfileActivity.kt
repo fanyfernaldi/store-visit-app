@@ -102,7 +102,6 @@ class ProfileActivity : AppCompatActivity() {
             val intent = Intent(this@ProfileActivity, StoreListActivity::class.java)
             storeListCallback.launch(intent)
         }
-        includeMenuVisit.root.setOnClickListener { toastButtonClicked("Menu Kunjugan clicked") }
         includeMenuTargetInstall.root.setOnClickListener { toastButtonClicked("Menu target install CDFDPC clicked") }
         includeMenuDashboard.root.setOnClickListener { toastButtonClicked("Menu dashboard clicked") }
         includeMenuTransmissionHistory.root.setOnClickListener { toastButtonClicked("Menu transmission history clicked") }

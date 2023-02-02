@@ -67,9 +67,10 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/tvCheckUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_outline_cloud_download"
+                android:drawableStart="@drawable/ic_save_alt"
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
                 android:text="@string/label_check_update"
