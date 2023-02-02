@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.fanyfernaldi.pitjarustest.R
 import com.fanyfernaldi.pitjarustest.caches.StoreCache
 import com.fanyfernaldi.pitjarustest.databases.LocalDatabase
 import com.fanyfernaldi.pitjarustest.databinding.ActivityLoginBinding
@@ -44,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun ActivityLoginBinding.bindData() {
-        tvAppVersion.text = "1.0.0-20013FEA6BC820C"
+        tvAppVersion.text = getString(R.string.label_app_version_value, "1.0.0-20013FEA6BC820C")
         val savedUsername = sharedPref.getString(DataConstants.IDP_USERNAME)
         if (!savedUsername.isNullOrEmpty()) {
             etUsername.setText(savedUsername)
